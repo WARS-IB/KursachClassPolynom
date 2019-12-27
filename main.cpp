@@ -1,6 +1,6 @@
 #include<iostream>
 #include<iomanip>
-#include <clocale>
+
 #include "Header.h"
 //main.cpp
 
@@ -8,28 +8,28 @@ int main()
 {
 	setlocale(LC_ALL, "");
 	int n, m,x;
-	cout << "Ââåäèòå ñòåïåíü ïîëèíîìà A è ñòåïåíü ïîëèíîìà B:" << '\n';
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÑÑ‚ÐµÐ¿ÐµÐ½ÑŒ Ð¿Ð¾Ð»Ð¸Ð½Ð¾Ð¼Ð° A Ð¸ ÑÑ‚ÐµÐ¿ÐµÐ½ÑŒ Ð¿Ð¾Ð»Ð¸Ð½Ð¾Ð¼Ð° B:" << '\n';
 	cin >> n >> m;
 	
 	(n>50)||(m>50) ? throw std::exception("Error") : cout << "\n Not error\n ";
 
 
 		Polynom A(n), B(m), D, K, Y;
-	cout << "Ââåäèòå êîýôèöèåíòû ïîëèíîìà A:" << '\n';
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾ÑÑ„Ð¸Ñ†Ð¸ÐµÐ½Ñ‚Ñ‹ Ð¿Ð¾Ð»Ð¸Ð½Ð¾Ð¼Ð° A:" << '\n';
 	cin >> A;
-	cout << "Ââåäèòå êîýôèöèåíòû ïîëèíîìà B:" << '\n';
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾ÑÑ„Ð¸Ñ†Ð¸ÐµÐ½Ñ‚Ñ‹ Ð¿Ð¾Ð»Ð¸Ð½Ð¾Ð¼Ð° B:" << '\n';
 	cin >> B;
 	cout <<'\n';
-	cout << setw(10) << "Ìíîãî÷ëåí À:" << setw(5) << A << '\n';
-	cout << setw(10) << "Ìíîãî÷ëåí B:" << setw(5) << B << '\n';
-	cout << setw(10) << "Ìíîãî÷ëåí D=A+B:" << setw(5) << (D = A + B) << '\n';
-	cout << setw(10) << "Ìíîãî÷ëåí K=A-B:" << setw(5) << (K = A - B) << '\n';
-	cout << setw(10) << "Ïðîèçâîäíàÿ îò A:" << setw(5) << A.Derivative() << '\n';
-	cout << setw(10) << "Èíòåãðàë îò A:" << setw(5) << "C" << A.Integral() << '\n';
-	cout << setw(10) << "Ìíîãî÷ëåí Y=A*B:" << setw(5) << (Y = A * B) << '\n';
-	cout << setw(10) << "Ââåäèòå õ , ÷òîáû ðàññ÷èòàòü ìíîãî÷ëåí A(x)" << '\n';
+	cout << setw(10) << "ÐœÐ½Ð¾Ð³Ð¾Ñ‡Ð»ÐµÐ½ Ð:" << setw(5) << A << '\n';
+	cout << setw(10) << "ÐœÐ½Ð¾Ð³Ð¾Ñ‡Ð»ÐµÐ½ B:" << setw(5) << B << '\n';
+	cout << setw(10) << "ÐœÐ½Ð¾Ð³Ð¾Ñ‡Ð»ÐµÐ½ D=A+B:" << setw(5) << (D = A + B) << '\n';
+	cout << setw(10) << "ÐœÐ½Ð¾Ð³Ð¾Ñ‡Ð»ÐµÐ½ K=A-B:" << setw(5) << (K = A - B) << '\n';
+	cout << setw(10) << "ÐŸÑ€Ð¾Ð¸Ð·Ð²Ð¾Ð´Ð½Ð°Ñ Ð¾Ñ‚ A:" << setw(5) << A.Derivative() << '\n';
+	cout << setw(10) << "Ð˜Ð½Ñ‚ÐµÐ³Ñ€Ð°Ð» Ð¾Ñ‚ A:" << setw(5) << "C" << A.Integral() << '\n';
+	cout << setw(10) << "ÐœÐ½Ð¾Ð³Ð¾Ñ‡Ð»ÐµÐ½ Y=A*B:" << setw(5) << (Y = A * B) << '\n';
+	cout << setw(10) << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ… , Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ñ€Ð°ÑÑÑ‡Ð¸Ñ‚Ð°Ñ‚ÑŒ Ð¼Ð½Ð¾Ð³Ð¾Ñ‡Ð»ÐµÐ½ A(x)" << '\n';
 	cout<<" x = "; cin >> x;
-	cout << setw(10) << "Ìíîãî÷ëåí A(x) = " << setw(5)<< A.TakeValue(x)<<endl;
+	cout << setw(10) << "ÐœÐ½Ð¾Ð³Ð¾Ñ‡Ð»ÐµÐ½ A(x) = " << setw(5)<< A.TakeValue(x)<<endl;
 	
 	
 	system("pause");
