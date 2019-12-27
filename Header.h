@@ -5,23 +5,23 @@ using namespace std;
 class Polynom
 {
 public:
-	int n; //степень полинома
-	double* koef; //указатель на массив коэффициентов полинома koef[i] - коэффициент при i-й степени
+	int n; //СЃС‚РµРїРµРЅСЊ РїРѕР»РёРЅРѕРјР°
+	double* koef; //СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РјР°СЃСЃРёРІ РєРѕСЌС„С„РёС†РёРµРЅС‚РѕРІ РїРѕР»РёРЅРѕРјР° koef[i] - РєРѕСЌС„С„РёС†РёРµРЅС‚ РїСЂРё i-Р№ СЃС‚РµРїРµРЅРё
 	Polynom();
-	Polynom(int an);//конструктор с параметрами
-	Polynom(const Polynom&); //копирования
-	~Polynom();//деструктор
-	int GetN(); //функция получения степени полинома
+	Polynom(int an);//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё
+	Polynom(const Polynom&); //РєРѕРїРёСЂРѕРІР°РЅРёСЏ
+	~Polynom();//РґРµСЃС‚СЂСѓРєС‚РѕСЂ
+	int GetN(); //С„СѓРЅРєС†РёСЏ РїРѕР»СѓС‡РµРЅРёСЏ СЃС‚РµРїРµРЅРё РїРѕР»РёРЅРѕРјР°
 	
-	Polynom operator+(const Polynom&);   //оператор сложения двух полиномов
-	Polynom operator-(const Polynom&);   //оператор вычитания двух полиномов
-	Polynom operator*(const Polynom&);// оператор умножения
-	Polynom operator=(const Polynom&);   //оператор присваивания
-	Polynom Derivative();//производная
-	Polynom Integral();//интеграл
-	double TakeValue(double x); //Значение от х
-	friend ostream& operator<< (ostream& s, const Polynom& c); // перегруженный оператор вывода
-	friend istream& operator >> (istream& s, Polynom& c); // перегруженный оператор ввода
+	Polynom operator+(const Polynom&);   //РѕРїРµСЂР°С‚РѕСЂ СЃР»РѕР¶РµРЅРёСЏ РґРІСѓС… РїРѕР»РёРЅРѕРјРѕРІ
+	Polynom operator-(const Polynom&);   //РѕРїРµСЂР°С‚РѕСЂ РІС‹С‡РёС‚Р°РЅРёСЏ РґРІСѓС… РїРѕР»РёРЅРѕРјРѕРІ
+	Polynom operator*(const Polynom&);// РѕРїРµСЂР°С‚РѕСЂ СѓРјРЅРѕР¶РµРЅРёСЏ
+	Polynom operator=(const Polynom&);   //РѕРїРµСЂР°С‚РѕСЂ РїСЂРёСЃРІР°РёРІР°РЅРёСЏ
+	Polynom Derivative();//РїСЂРѕРёР·РІРѕРґРЅР°СЏ
+	Polynom Integral();//РёРЅС‚РµРіСЂР°Р»
+	double TakeValue(double x); //Р—РЅР°С‡РµРЅРёРµ РѕС‚ С…
+	friend ostream& operator<< (ostream& s, const Polynom& c); // РїРµСЂРµРіСЂСѓР¶РµРЅРЅС‹Р№ РѕРїРµСЂР°С‚РѕСЂ РІС‹РІРѕРґР°
+	friend istream& operator >> (istream& s, Polynom& c); // РїРµСЂРµРіСЂСѓР¶РµРЅРЅС‹Р№ РѕРїРµСЂР°С‚РѕСЂ РІРІРѕРґР°
 
 };
 	Polynom::Polynom()
@@ -55,12 +55,12 @@ public:
 		return n;
 	}
 
-	Polynom Polynom::operator-(const Polynom & t) //оператор вычитания А-В
+	Polynom Polynom::operator-(const Polynom & t) //РѕРїРµСЂР°С‚РѕСЂ РІС‹С‡РёС‚Р°РЅРёСЏ Рђ-Р’
 	{
 		int i;
-		if (n >= t.n)//А>B t.n=B
+		if (n >= t.n)//Рђ>B t.n=B
 		{
-			Polynom Z = *this; //Присваиваем Z =A вызывается конструктор копирования
+			Polynom Z = *this; //РџСЂРёСЃРІР°РёРІР°РµРј Z =A РІС‹Р·С‹РІР°РµС‚СЃСЏ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
 			for (i = 0; i <= t.n; i++)
 				Z.koef[i] = koef[i] - t.koef[i];
 			return Z;
@@ -76,7 +76,7 @@ public:
 		}
 	}
 	
-	Polynom Polynom::operator+(const Polynom & t)//оператор сложения A+B
+	Polynom Polynom::operator+(const Polynom & t)//РѕРїРµСЂР°С‚РѕСЂ СЃР»РѕР¶РµРЅРёСЏ A+B
 	{
 		int i;
 		if (n >= t.n)//A>B
@@ -94,7 +94,7 @@ public:
 			return Z;
 		}
 	}
-	Polynom Polynom::operator*(const Polynom & t)//оператор умножения А*В
+	Polynom Polynom::operator*(const Polynom & t)//РѕРїРµСЂР°С‚РѕСЂ СѓРјРЅРѕР¶РµРЅРёСЏ Рђ*Р’
 	{
 		int i, j, s = 0;
 		Polynom Y(n + t.n);
@@ -105,7 +105,7 @@ public:
 	}
 	Polynom Polynom::operator = (const Polynom & t)
 	{
-		if (this != &t) //Если объект не присваевается он же сам защита от A=A
+		if (this != &t) //Р•СЃР»Рё РѕР±СЉРµРєС‚ РЅРµ РїСЂРёСЃРІР°РµРІР°РµС‚СЃСЏ РѕРЅ Р¶Рµ СЃР°Рј Р·Р°С‰РёС‚Р° РѕС‚ A=A
 		{
 			delete[] koef;
 			n = t.n;
@@ -113,9 +113,9 @@ public:
 			for (int i = 0; i <= n; i++)
 				koef[i] = t.koef[i];
 		}
-		return *this; //возращает объект по значению
+		return *this; //РІРѕР·СЂР°С‰Р°РµС‚ РѕР±СЉРµРєС‚ РїРѕ Р·РЅР°С‡РµРЅРёСЋ
 	}
-	istream& operator>>(istream & s, Polynom & c)// перегруженный оператор ввода ?Передает коефы в поток
+	istream& operator>>(istream & s, Polynom & c)// РїРµСЂРµРіСЂСѓР¶РµРЅРЅС‹Р№ РѕРїРµСЂР°С‚РѕСЂ РІРІРѕРґР° ?РџРµСЂРµРґР°РµС‚ РєРѕРµС„С‹ РІ РїРѕС‚РѕРє
 	{
 		int i;
 		for (i = 0; i <= c.n; i++)
@@ -124,7 +124,7 @@ public:
 		}
 		return s;
 	}
-	ostream& operator<<(ostream & s, const Polynom & c) // перегруженный оператор ввода ?Берет коефы в потом взять с полинома(взять коэфы) с-адресс полинома
+	ostream& operator<<(ostream & s, const Polynom & c) // РїРµСЂРµРіСЂСѓР¶РµРЅРЅС‹Р№ РѕРїРµСЂР°С‚РѕСЂ РІРІРѕРґР° ?Р‘РµСЂРµС‚ РєРѕРµС„С‹ РІ РїРѕС‚РѕРј РІР·СЏС‚СЊ СЃ РїРѕР»РёРЅРѕРјР°(РІР·СЏС‚СЊ РєРѕСЌС„С‹) СЃ-Р°РґСЂРµСЃСЃ РїРѕР»РёРЅРѕРјР°
 	{
 		int i, n = 0;
 		for (i = 0; i <= c.n; i++)
@@ -166,7 +166,7 @@ public:
 		}
 		return s;
 	}
-	Polynom Polynom::Derivative()//производная от А
+	Polynom Polynom::Derivative()//РїСЂРѕРёР·РІРѕРґРЅР°СЏ РѕС‚ Рђ
 	{
 		int i;
 		Polynom Z(n - 1);
@@ -176,7 +176,7 @@ public:
 		}
 		return Z;
 	}
-	Polynom Polynom::Integral()//интеграл от А
+	Polynom Polynom::Integral()//РёРЅС‚РµРіСЂР°Р» РѕС‚ Рђ
 	{
 		int i;
 		Polynom Z(n + 1);
