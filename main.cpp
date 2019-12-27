@@ -1,6 +1,6 @@
 #include<iostream>
 #include<iomanip>
-
+#include <clocale>
 #include "Header.h"
 //main.cpp
 
