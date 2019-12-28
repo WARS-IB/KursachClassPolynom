@@ -17,6 +17,7 @@ public:
 	Polynom operator-(const Polynom&);   //оператор вычитания двух полиномов
 	Polynom operator*(const Polynom&);// оператор умножения
 	Polynom operator=(const Polynom&);   //оператор присваивания
+	Polynom operator /(const Polynom& t); // Деление;
 	Polynom Derivative();//производная
 	Polynom Integral();//интеграл
 	double TakeValue(double x); //Значение от х
@@ -103,6 +104,18 @@ public:
 				Y.koef[i + j] += koef[i] * t.koef[j];
 		return Y;
 	}
+	Polynom Polynom::operator /(const Polynom& t)//оператор деление А/В
+	{
+		int i, j, s = 0;
+		Polynom Y(n-t.n);
+		for (i = 0; i <= n; i++)
+			for (j = 0; j <= t.n; j++)
+				Y.koef[i + j] += koef[i] / t.koef[j];
+		
+		
+		return Y;
+	}
+
 	Polynom Polynom::operator = (const Polynom & t)
 	{
 		if (this != &t) //Если объект не присваевается он же сам защита от A=A
